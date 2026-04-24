@@ -17,13 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     marca: DataTypes.STRING,
     modelo: DataTypes.STRING,
     imagen: DataTypes.STRING,
-    valorAlquiler: DataTypes.FLOAT,
+    // Agregamos field para mapear exactamente al nombre en la DB
+    valorAlquiler: {
+      type: DataTypes.FLOAT,
+      field: 'valorAlquiler' 
+    },
     anio: DataTypes.STRING,
     disponibilidad: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Autos',
-    tableName: 'autos'
+    tableName: 'autos', // Esto asegura que busque "autos" y no "Autos"
+    freezeTableName: true,
+    underscored: false // Mantenemos CamelCase si así está en tu DB
   });
   return Autos;
 };

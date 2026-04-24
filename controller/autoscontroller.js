@@ -6,9 +6,13 @@ exports.autosDisponibles = async (req, res) => {
             where: { disponibilidad: 1 } 
         });
         res.json(autos);
-    } catch (e) {
-        res.json({ mensaje: "error" });
-    } 
+    } catch (error) {
+    console.log("EL ERROR REAL ES:", error); // Esto saldrá en tu terminal de VS Code
+    res.status(500).json({ mensaje: 'error', detalle: error.message });
+} 
+    //catch (e) {
+    //    res.json({ mensaje: "error" });
+    //} 
 };
 
 exports.registrarAuto = async (req, res) => {
