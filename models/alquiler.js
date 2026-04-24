@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Alquiler',
-    tableName: 'alquiler' // Nombre exacto de la tabla
+    tableName: 'Alquileres' // Nombre exacto de la tabla
   });
   return Alquiler;
 };
