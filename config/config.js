@@ -10,6 +10,9 @@ module.exports = {
         rejectUnauthorized: false, // Permite conexiones SSL sin verificación estricta de certificado
       },
     },
+    define: {
+      schema: 'public'  // ← asegura que busca en el schema correcto de Neon
+    },
   },
   test: {
     username: 'root',
@@ -26,6 +29,9 @@ module.exports = {
         require: true,
         rejectUnauthorized: false,
       },
+    },
+    define: {
+      schema: 'public'   // ← ESTO faltaba en production
     },
   }
 };

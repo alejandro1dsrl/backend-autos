@@ -41,7 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Cliente',
-      tableName: 'clientes',
+      tableName: '"Clientes"',
+      freezeTableName: true,
       hooks: {
         // Hook para encriptar la contraseña antes de crear un registro
         beforeCreate: async (cliente) => {

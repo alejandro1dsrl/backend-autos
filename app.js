@@ -13,7 +13,12 @@ const clientesR = require('./routes/clienteroutes');
 const PORT = process.env.PORT || 6001;
 
 // Middleware para analizar JSON
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors());
 app.use(express.json());
 
 // Prefijos para cada conjunto de rutas
