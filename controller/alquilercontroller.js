@@ -68,10 +68,13 @@ exports.alquileresPorCliente = async (req, res) => {
                 }
             ]
         });
-        res.json({ alquileres });
+        return res.status(200).json({ alquileres });
     } catch (e) {
-        console.error(e);
-        res.json({ mensaje: "Error al obtener alquileres del cliente", error: e.message });
+        console.error('Error alquileresPorCliente:', e);
+        return res.status(500).json({ 
+            mensaje: "Error al obtener alquileres del cliente",
+            error: e.message 
+        });
     }
 };
 
